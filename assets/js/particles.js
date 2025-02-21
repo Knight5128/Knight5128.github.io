@@ -12,7 +12,7 @@ class Particle {
         this.targetY = y;
         this.velocityX = 0;
         this.velocityY = 0;
-        this.friction = 0.95;
+        this.friction = 0.55;  // 降低摩擦力以提高响应速度
         this.isOrbiting = false;
     }
 
@@ -29,12 +29,12 @@ class Particle {
             const dy = mouseY - this.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
             
-            if (distance < 100) {
+            if (distance < 50) {  // 缩小进入轨道的距离
                 this.isOrbiting = true;
             }
 
-            this.velocityX += dx * 0.05;
-            this.velocityY += dy * 0.05;
+            this.velocityX += dx * 0.4;  // 增加加速度
+            this.velocityY += dy * 0.4;
             
             this.velocityX *= this.friction;
             this.velocityY *= this.friction;
@@ -91,23 +91,30 @@ class ParticleSystem {
         this.resize();
         window.addEventListener('resize', () => this.resize());
 
-        // 获取初始鼠标位置
-        document.addEventListener('mousemove', (e) => {
-            if (this.particles.length === 0) {
-                // 第一次移动鼠标时才创建粒子
-                this.mouseX = e.clientX;
-                this.mouseY = e.clientY;
-                this.createParticles();
-            }
+        // 第一次移动时创建粒子
+        const firstMove = (e) => {
             this.mouseX = e.clientX;
             this.mouseY = e.clientY;
-            this.isMouseMoving = true;
+            this.createParticles();
+            document.removeEventListener('mousemove', firstMove);
             
-            clearTimeout(this.mouseTimer);
-            this.mouseTimer = setTimeout(() => {
-                this.isMouseMoving = false;
-            }, 100);
-        }, { once: true }); // 只监听第一次移动
+            // 添加持续的鼠标跟踪
+            document.addEventListener('mousemove', (e) => {
+                this.mouseX = e.clientX;
+                this.mouseY = e.clientY;
+                this.isMouseMoving = true;
+                
+                clearTimeout(this.mouseTimer);
+                this.mouseTimer = setTimeout(() => {
+                    this.isMouseMoving = false;
+                }, 100);
+            });
+        };
+        
+        // 监听第一次移动
+        document.addEventListener('mousemove', (e) => {
+            if (this.particles.length === 0) firstMove(e);
+        });
 
         // 开始动画
         this.animate();
