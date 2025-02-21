@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="assets/js/particles.js"></script>
 </head>
 <body>
     <div id="app">
@@ -31,6 +32,17 @@
     </div>
 
     <script>
+        // 初始化粒子系统
+        new ParticleSystem({
+            particleCount: 50,        // 粒子数量
+            particleSize: 3,          // 基础粒子大小
+            particleSizeVariation: 1, // 粒子大小变化范围
+            baseRadius: 50,           // 基础圆周运动半径
+            radiusVariation: 30,      // 圆周半径变化范围
+            brightness: 0.8,          // 粒子亮度 (0-1)
+            initialSpread: 100        // 初始分布范围（像素）
+        });
+        
         document.addEventListener('DOMContentLoaded', function() {
             const texts = [
                 "Hi, 欢迎来到小城一角, 请随意畅游!",
