@@ -1,1 +1,33 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doiiars Blog - 技术极客的世界</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <nav-bar></nav-bar>
+        
+        <header class="hero">
+            <h1>Doiiars Blog</h1>
+            <p>Hi, 这里是Doiiars, 我是一个技术Geek!</p>
+        </header>
+
+        <main class="category-grid">
+            <category-card title="知行合一" theme="pink"></category-card>
+            <category-card title="技术分享" theme="purple"></category-card>
+            <category-card title="心情随笔" theme="green"></category-card>
+            <category-card title="收集整理" theme="blue"></category-card>
+            <category-card title="机器人" theme="navy"></category-card>
+            <category-card title="网络安全" theme="teal"></category-card>
+            <category-card title="概念" theme="cyan"></category-card>
+        </main>
+
+        <footer-component></footer-component>
+    </div>
+</body>
+</html> 

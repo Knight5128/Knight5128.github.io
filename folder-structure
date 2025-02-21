@@ -1,0 +1,13 @@
+city-corner/
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   └── images/
+├── components/
+│   ├── Header.vue
+│   ├── Footer.vue
+│   ├── CategoryCard.vue
+│   └── NavBar.vue
+├── index.html
+└── main.js 
