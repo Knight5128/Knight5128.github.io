@@ -3,17 +3,17 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>关于本站</h4>
-                <p>一个热爱技术的Geek的个人博客</p>
+                <p>一个热爱技术、游戏、生活的平凡的人的个人博客</p>
             </div>
             <div class="footer-section">
                 <h4>联系方式</h4>
                 <div class="social-links">
-                    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                    <a href="https://github.com/Knight5128" target="_blank">GitHub</a>
                 </div>
             </div>
             <div class="footer-section">
                 <h4>站点信息</h4>
-                <p>© 2024 Doiiars Blog</p>
+                <p>© 2025 City Corner</p>
             </div>
         </div>
     </footer>
