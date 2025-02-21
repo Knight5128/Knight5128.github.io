@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doiiars Blog - 技术极客的世界</title>
+    <title>City Corner | 城市的一角中，分享AI相关使用网站、个人项目介绍、</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -13,8 +13,8 @@
         <nav-bar></nav-bar>
         
         <header class="hero">
-            <h1>Doiiars Blog</h1>
-            <p>Hi, 这里是Doiiars, 我是一个技术Geek!</p>
+            <h1>City Corner</h1>
+            <p class="typing-text" id="typing-text"></p>
         </header>
 
         <main class="category-grid">
@@ -29,5 +29,39 @@
 
         <footer-component></footer-component>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const texts = [
+                "Hi, 欢迎来到小城一角, 请随意畅游!",
+                "欢迎来到我的博客"
+            ];
+            const textElement = document.getElementById('typing-text');
+            
+            async function typeAndErase() {
+                // 第一段文字：打字
+                for (let i = 0; i <= texts[0].length; i++) {
+                    textElement.textContent = texts[0].substring(0, i);
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                }
+                await new Promise(resolve => setTimeout(resolve, 500));
+                
+                // 第一段文字：删除
+                for (let i = texts[0].length; i >= 0; i--) {
+                    textElement.textContent = texts[0].substring(0, i);
+                    await new Promise(resolve => setTimeout(resolve, 250));
+                }
+                await new Promise(resolve => setTimeout(resolve, 500));
+                
+                // 第二段文字：打字
+                for (let i = 0; i <= texts[1].length; i++) {
+                    textElement.textContent = texts[1].substring(0, i);
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                }
+            }
+            
+            typeAndErase();
+        });
+    </script>
 </body>
 </html> 
